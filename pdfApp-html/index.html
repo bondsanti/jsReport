@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pdfmake-HTML</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/pdfmake.min.js"
+      integrity="sha512-7BzHjLXs8xehClrkJEtJtAwXxcbLast87k+XekuItHxrMr/v6POWkoKS2/8CU6DHdIjY+A4NwvsBQ8PxoRH7xQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/vfs_fonts.min.js"
+      integrity="sha512-P0bOMePRS378NwmPDVPU455C/TuxDS+8QwJozdc7PGgN8kLqR4ems0U/3DeJkmiE31749vYWHvBOtR+37qDCZQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <h1>รายงาน By pdfmake</h1>
+    <button id="genPDF">Gen pdf</button>
+
+    <script>
+      const genPDF = document.querySelector("#genPDF");
+      genPDF.addEventListener("click", function (event) {
+        event.preventDefault();
+        //alert("Swatdee");
+        pdfMake.fonts = {
+          Thsarabun: {
+            normal:
+              "https://codingthailand.com/site/fonts/th/THSarabunNew.ttf",
+            bold: "https://codingthailand.com/site/fonts/th/THSarabunNewBold.ttf",
+            italics:
+              "https://codingthailand.com/site/fonts/th/THSarabunNewBoldItalic.ttf",
+            bolditalics:
+              "https://codingthailand.com/site/fonts/th/THSarabunNewItalic.ttf",
+          },
+        };
+        pdfMake
+          .createPdf({
+            content: ["พันธกิจ กิฟท์ฮีโร่บอดี้โบรชัวร์แจ็กเก็ต อุเทนหมั่นโถว ก๊วนอึ้มโดมิโนสต๊อคยะเยือก เห็นด้วยการันตี ธุหร่ำไบเบิลเทควันโด เมคอัพวิทย์ บร็อคโคลีมอบตัวคอมเมนต์ธรรมาเรต"],
+            defaultStyle: {
+              font: "Thsarabun",
+              fontSize:18,
+              alignment: 'justify'
+            },
+          })
+          .open(); //open(),download(),print();
+      });
+    </script>
+  </body>
+</html>
