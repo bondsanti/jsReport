@@ -1,23 +1,21 @@
 import './style.css'
 import javascriptLogo from './javascript.svg'
-import { setupCounter } from './counter.js'
+import { genPDF1 } from './pdf1.js'
+import { genPDF2 } from './pdf2.js'
 
 document.querySelector('#app').innerHTML = `
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
     </a>
-    <h1>Hello Vite!</h1>
+    
     <div class="card">
-      <button id="counter" type="button"></button>
+      <button id="btnGenPdf1" type="button">PDF 1</button>
+      <button id="btnGenPdf2" type="button">PDF 2</button>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
+
   </div>
 `
 
-setupCounter(document.querySelector('#counter'))
+genPDF1(document.querySelector('#btnGenPdf1'))
+genPDF2(document.querySelector('#btnGenPdf2'))
