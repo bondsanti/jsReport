@@ -1,15 +1,17 @@
 import { pdfFonts,pdfMake } from './lib/pdfmake';
 
 
-export function genPDF2(element) {
+export function genPDF3(element) {
 
   element.addEventListener('click', () =>{
     pdfMake.createPdf({
       pageSize:'A4',
       pageMargins:[75, 45, 75, 45 ],// [left, top, right, bottom]
+      images:{
+        logo:'https://www.tailorbrands.com/wp-content/uploads/2020/07/mcdonalds-logo.jpg'
+      },
       content: [
-        {svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>',
-        fit: [150, 100]},
+        {image: 'logo',width:115,alignment:'center',marginBottom:24},
         {text:`รายงาน`,alignment:'center',fontSize:20,bold:true},
         {text:`\t\tโมเดิร์นสปิริต แป๋วบ๊วยเฟอร์รี่ บอกซ์ไอติมกาญจนาภิเษกจิตเภทกิมจิ เตี๊ยมเอ็กซ์โปเซลส์แมน เจ็ต คอลัมนิสต์แบตช็อคแชมเปี้ยน เซรามิกอึมครึม ปาสกาลทีวีสปอตก๋ากั่น แกสโซฮอล์ฮองเฮาชีส สวีทซิ้มเทรลเล่อร์อิกัวนาแทกติค คอลัมนิสต์เลดี้ยูโรฮิปฮอป บอร์ด มอคค่าภคันทลาพาธเฟิร์มซิมโฟนี่ เพียบแปร้มวลชนพิซซ่าฮีโร่ ถูกต้อง ควิกตุ๋ย \n\n`},
         {
