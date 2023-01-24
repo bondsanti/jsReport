@@ -7,6 +7,7 @@ import { genPDF4 } from './pdf4.js'
 import { genPDF5 } from './pdf5.js'
 import { genPDF6 } from './pdf6.js'
 import { genPDF7 } from './pdf7.js'
+import { genPDF8 } from './pdf8.js'
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -22,6 +23,7 @@ document.querySelector('#app').innerHTML = `
       <button id="btnGenPdf5" type="button">PDF 5 Table API</button>
       <button id="btnGenPdf6" type="button">PDF 6 ใบเสร็จ </button>
       <button id="btnGenPdf7" type="button">PDF 7 FT End </button>
+      <button id="btnGenPdf8" type="button">PDF 8 qrcode barcode </button>
       </div>
 
   </div>
@@ -34,3 +36,4 @@ genPDF4(document.querySelector('#btnGenPdf4'))
 genPDF5(document.querySelector('#btnGenPdf5'))
 genPDF6(document.querySelector('#btnGenPdf6'))
 genPDF7(document.querySelector('#btnGenPdf7'))
+genPDF8(document.querySelector('#btnGenPdf8'))
