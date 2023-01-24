@@ -5,7 +5,7 @@ export function genBarcode(valueText) {
   let canvas = document.createElement("canvas");
   JsBarcode(canvas, valueText, {
     format: "CODE128",
-    height: 100,
+    height: 25,
     width: 1,
     displayValue: true,
     font: "Thsarabun",

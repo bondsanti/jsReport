@@ -1,4 +1,5 @@
 import { pdfFonts,pdfMake } from './lib/pdfmake';
+import { genBarcode } from './lib/jsbarcode';
 import axios from 'axios';
 //https://api.codingthailand.com/api/hospital2?page=1&page_size=100
 
@@ -14,14 +15,14 @@ export function genPDF5(element) {
 
     let hostpital = [];
 
-    const response = await axios.get('https://api.codingthailand.com/api/hospital2?page=1&page_size=200');
+    const response = await axios.get('https://api.codingthailand.com/api/hospital2?page=1&page_size=150');
     //console.log(response);
     hostpital = response.data.data;
 
     let bodyTable = [];
     //ds
     bodyTable = hostpital.map(({id,code,h_name}) => {
-        return[{text:id,alignment:'center'},{text:code,alignment:'center'},h_name];
+        return[{text:id,alignment:'center'},{image:genBarcode(code.toString())},{text:h_name.substring(0,100)}];
     });
     
     bodyTable.unshift(tableHeader);
@@ -66,6 +67,7 @@ export function genPDF5(element) {
         layout:'lightHorizontalLines',
         table:{
             headerRows:1,//ห้วตาราง
+            dontBreakRows:true,
             widths:[50,'*','auto'],//collum
             body:bodyTable
 
