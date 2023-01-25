@@ -12,6 +12,7 @@
     "vite": "^3.2.3"
   },
   "dependencies": {
+    "apexcharts": "^3.36.3",
     "axios": "^1.2.3",
     "buffer": "^6.0.3",
     "docx": "^7.8.2",
